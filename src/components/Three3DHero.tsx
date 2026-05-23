@@ -91,11 +91,11 @@ export const Three3DHero: React.FC = () => {
     };
 
     const fallbackTexture = createFallbackTexture();
-    
+
     // Load Unsplash concert image
     const textureLoader = new THREE.TextureLoader();
     const concertImageUrl = 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1600&q=80';
-    
+
     // Create material configuration with brand emissive colors
     const sideMatBlue = new THREE.MeshStandardMaterial({
       color: 0x030404,
@@ -200,7 +200,7 @@ export const Three3DHero: React.FC = () => {
         // Choose brand emissive side material based on seeded random to create dynamic pattern
         const seed = Math.sin(c * 12.9898 + r * 78.233) * 43758.5453;
         const randomVal = seed - Math.floor(seed);
-        
+
         let chosenSideMat = sideMatBlue;
         if (randomVal > 0.66) {
           chosenSideMat = sideMatPink;
@@ -208,13 +208,11 @@ export const Three3DHero: React.FC = () => {
           chosenSideMat = sideMatOrange;
         }
 
-        const sideMatClone = chosenSideMat.clone();
-
         const cellMaterials = [
-          sideMatClone, // px
-          sideMatClone, // nx
-          sideMatClone, // py
-          sideMatClone, // ny
+          chosenSideMat, // px
+          chosenSideMat, // nx
+          chosenSideMat, // py
+          chosenSideMat, // ny
           frontMat,      // pz
           backMat,       // nz
         ];
@@ -298,10 +296,10 @@ export const Three3DHero: React.FC = () => {
       const centerCol = (cols - 1) / 2;
       const centerRow = (rows - 1) / 2;
       const dist = Math.hypot(cell.col - centerCol, cell.row - centerRow);
-      
+
       // Phase 1: Flip & Separate (starts at scroll 0.0)
       const flipStart = dist * 0.08;
-      
+
       // Animate flip (flip parameter: 0 is dark front face, 1 is back textured face)
       tl.to(
         state,
@@ -450,14 +448,6 @@ export const Three3DHero: React.FC = () => {
         const targetScaleZ = 1 + state.extrude * (cell.maxExtrude - 1);
         cell.mesh.scale.z = targetScaleZ;
         cell.mesh.position.z = (0.1 * targetScaleZ - 0.1) / 2;
-
-        // Dynamically scale emissive intensity so lines are invisible when flat
-        if (Array.isArray(cell.mesh.material)) {
-          const sideMat = cell.mesh.material[0] as THREE.MeshStandardMaterial;
-          if (sideMat) {
-            sideMat.emissiveIntensity = 6.0 * Math.max(state.flip, state.extrude);
-          }
-        }
       });
 
       renderer.render(scene, camera);
@@ -470,21 +460,21 @@ export const Three3DHero: React.FC = () => {
     return () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', fitGridToCamera);
-      
+
       // Clean up geometries and materials to prevent WebGL memory leaks
       cells.forEach((cell) => {
         cell.mesh.geometry.dispose();
       });
-      
+
       sideMatBlue.dispose();
       sideMatPink.dispose();
       sideMatOrange.dispose();
       frontMat.dispose();
       backMat.dispose();
-      
+
       fallbackTexture.dispose();
       renderer.dispose();
-      
+
       // Kill ScrollTrigger instances created for this component
       ScrollTrigger.getAll().forEach((trigger) => {
         if (trigger.trigger === container) {

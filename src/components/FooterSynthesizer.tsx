@@ -17,7 +17,7 @@ export const FooterSynthesizer: React.FC = () => {
 
   return (
     <footer className="w-full bg-[#0D21DD] border-t-4 border-black text-white font-sans z-10 relative select-none">
-      
+
       {/* Ticker banner above the synthesizer deck */}
       <div className="h-12 border-b-4 border-black bg-black text-white flex items-center overflow-hidden">
         <div className="animate-scroll whitespace-nowrap py-1">
@@ -33,7 +33,7 @@ export const FooterSynthesizer: React.FC = () => {
 
       {/* Synthesizer Grid Layout (3 Columns on desktop) */}
       <div className="max-w-7xl mx-auto p-6 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-        
+
         {/* ==================== LEFT COLUMN (4/12 Width): Digital Panel & Buttons ==================== */}
         <div className="lg:col-span-4 border-4 border-black bg-white p-5 shadow-[4px_4px_0px_#000000] flex flex-col justify-between space-y-6">
           <div className="space-y-4">
@@ -200,7 +200,7 @@ export const FooterSynthesizer: React.FC = () => {
               <div className="absolute inset-1.5 border border-gray-800 rounded-full" />
               <div className="absolute inset-5 border border-gray-700 rounded-full" />
               <div className="absolute inset-10 border border-gray-600 rounded-full" />
-              
+
               {/* Inner yellow core */}
               <div className="w-12 h-12 rounded-full bg-[#FF9A00] border-2 border-black flex items-center justify-center text-center">
                 <span className="font-bebas text-[9px] font-black text-black leading-none transform -rotate-12">

@@ -95,9 +95,9 @@ export const Homepage: React.FC<HomepageProps> = ({ onNavigateToTab }) => {
     <div className="flex flex-col w-full text-black bg-[#F5F1E5] overflow-x-hidden font-sans">
       {/* 3D Intro Animation (Grid reveal, extrusion & camera transitions) */}
       <Three3DHero />
-      
+
       {/* ==================== 1. HERO SECTION (Dark Grid & Retro Console) ==================== */}
-      <section 
+      <section
         ref={heroRef}
         onMouseMove={handleMouseMove}
         className="w-full min-h-[90vh] py-12 px-4 md:px-8 flex flex-col items-center justify-center border-b-4 border-black relative overflow-hidden"
@@ -177,7 +177,7 @@ export const Homepage: React.FC<HomepageProps> = ({ onNavigateToTab }) => {
             {/* Orange/Brown action card container */}
             <div className="w-full max-w-md bg-[#8C6239] border-3 border-black p-4 shadow-[4px_4px_0px_#000000] flex flex-col sm:flex-row gap-4 justify-center">
               {/* Events Action Button */}
-              <button 
+              <button
                 onClick={() => onNavigateToTab('events-external')}
                 className="flex-1 py-3 bg-[#0D21DD] text-white font-bebas text-xl tracking-wider border-2 border-black shadow-[3px_3px_0px_#000000] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_#000000] active:translate-x-[0px] active:translate-y-[0px] active:shadow-none transition-all flex items-center justify-center gap-2 cursor-pointer uppercase"
               >
@@ -186,7 +186,7 @@ export const Homepage: React.FC<HomepageProps> = ({ onNavigateToTab }) => {
               </button>
 
               {/* Proshows Action Button */}
-              <button 
+              <button
                 onClick={() => {
                   const proshowEl = document.getElementById('proshows-section');
                   if (proshowEl) proshowEl.scrollIntoView({ behavior: 'smooth' });
@@ -231,13 +231,13 @@ export const Homepage: React.FC<HomepageProps> = ({ onNavigateToTab }) => {
 
       {/* Scroll-Linked Parallax Ticker Background */}
       <div className="w-full overflow-hidden bg-white py-6 pointer-events-none relative select-none border-b-4 border-black flex flex-col gap-2">
-        <div 
+        <div
           className="font-bebas text-[9vw] font-black text-black/5 leading-none whitespace-nowrap transition-transform duration-75"
           style={{ transform: `translate3d(-${scrollOffset * 0.22}px, 0, 0)` }}
         >
           RISE RUSH REVEL • RIVIERA 2026 • RISE RUSH REVEL • RIVIERA 2026 • RISE RUSH REVEL • RIVIERA 2026
         </div>
-        <div 
+        <div
           className="font-bebas text-[9vw] font-black text-black/5 leading-none whitespace-nowrap transition-transform duration-75"
           style={{ transform: `translate3d(calc(-300px + ${scrollOffset * 0.22}px), 0, 0)` }}
         >
@@ -292,9 +292,9 @@ export const Homepage: React.FC<HomepageProps> = ({ onNavigateToTab }) => {
             {/* Left Column: Mithali Raj Portrait */}
             <div className="md:col-span-5 bg-white border-4 border-black p-3 shadow-[8px_8px_0px_#0D21DD] relative flex flex-col justify-between">
               <div className="aspect-3/4 border-2 border-black overflow-hidden bg-gray-200">
-                <img 
-                  src="https://images.unsplash.com/photo-1540747737956-37872404a821?w=600&auto=format&fit=crop&q=80" 
-                  alt="Mithali Raj" 
+                <img
+                  src="https://images.unsplash.com/photo-1540747737956-37872404a821?w=600&auto=format&fit=crop&q=80"
+                  alt="Mithali Raj"
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300"
                 />
               </div>
@@ -311,7 +311,7 @@ export const Homepage: React.FC<HomepageProps> = ({ onNavigateToTab }) => {
                 <h3 className="text-4xl md:text-5xl font-bebas text-black leading-none uppercase">
                   KICKING IT OFF WITH EXCELLENCE
                 </h3>
-                
+
                 <div>
                   <h4 className="font-black text-xs uppercase tracking-widest text-[#FF188C] mb-1">
                     CHIEF GUEST
@@ -350,7 +350,7 @@ export const Homepage: React.FC<HomepageProps> = ({ onNavigateToTab }) => {
             <p className="font-bold text-gray-400 uppercase tracking-tight text-sm leading-relaxed max-w-sm">
               We\'re bringing together powerful voices and vibrant performers for a lineup that promises music, memories, and magic. This is where campus meets culture.
             </p>
-            <button 
+            <button
               onClick={() => onNavigateToTab('announcements')}
               className="px-8 py-4 bg-[#0D21DD] text-white font-bebas text-2xl tracking-widest border-3 border-white shadow-[4px_4px_0px_#FF9A00] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_#FF9A00] active:translate-x-[0px] active:translate-y-[0px] active:shadow-none transition-all cursor-pointer uppercase"
             >
