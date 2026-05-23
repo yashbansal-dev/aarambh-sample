@@ -13,12 +13,9 @@ const Three3DHero = dynamic(
   { ssr: false }
 );
 
-interface HomepageProps {
-  onNavigateToTab: (tab: string) => void;
-  onSelectEvent: (event: Event) => void;
-}
+interface HomepageProps {}
 
-export const Homepage: React.FC<HomepageProps> = ({ onNavigateToTab }) => {
+export const Homepage: React.FC<HomepageProps> = () => {
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -177,8 +174,12 @@ export const Homepage: React.FC<HomepageProps> = ({ onNavigateToTab }) => {
             {/* Orange/Brown action card container */}
             <div className="w-full max-w-md bg-[#8C6239] border-3 border-black p-4 shadow-[4px_4px_0px_#000000] flex flex-col sm:flex-row gap-4 justify-center">
               {/* Events Action Button */}
-              <button
-                onClick={() => onNavigateToTab('events-external')}
+              {/* Events Action Button */}
+              <button 
+                onClick={() => {
+                  const proshowEl = document.getElementById('proshows-section');
+                  if (proshowEl) proshowEl.scrollIntoView({ behavior: 'smooth' });
+                }}
                 className="flex-1 py-3 bg-[#0D21DD] text-white font-bebas text-xl tracking-wider border-2 border-black shadow-[3px_3px_0px_#000000] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_#000000] active:translate-x-[0px] active:translate-y-[0px] active:shadow-none transition-all flex items-center justify-center gap-2 cursor-pointer uppercase"
               >
                 <span className="w-5 h-5 rounded-full bg-white border border-black flex items-center justify-center text-[10px]">★</span>
@@ -348,11 +349,13 @@ export const Homepage: React.FC<HomepageProps> = ({ onNavigateToTab }) => {
             </h2>
             <div className="h-1 bg-[#FF9A00] w-24" />
             <p className="font-bold text-gray-400 uppercase tracking-tight text-sm leading-relaxed max-w-sm">
-              We\'re bringing together powerful voices and vibrant performers for a lineup that promises music, memories, and magic. This is where campus meets culture.
+              We're bringing together powerful voices and vibrant performers for a lineup that promises music, memories, and magic. This is where campus meets culture.
             </p>
-            <button
-              onClick={() => onNavigateToTab('announcements')}
-              className="px-8 py-4 bg-[#0D21DD] text-white font-bebas text-2xl tracking-widest border-3 border-white shadow-[4px_4px_0px_#FF9A00] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_#FF9A00] active:translate-x-[0px] active:translate-y-[0px] active:shadow-none transition-all cursor-pointer uppercase"
+            <button 
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="px-8 py-4 bg-[#0D21DD] text-white font-bebas text-2xl tracking-widest border-3 border-black shadow-[4px_4px_0px_#FF9A00] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_#FF9A00] active:translate-x-[0px] active:translate-y-[0px] active:shadow-none transition-all cursor-pointer uppercase"
             >
               BUY TICKETS
             </button>
@@ -471,8 +474,7 @@ export const Homepage: React.FC<HomepageProps> = ({ onNavigateToTab }) => {
             {categories.map((cat, idx) => (
               <div
                 key={idx}
-                onClick={() => onNavigateToTab('events-external')}
-                className="bg-[#E6DFFE] border-3 border-black p-6 shadow-[4px_4px_0px_#FF9A00] hover:shadow-[6px_6px_0px_#FF9A00] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all cursor-pointer text-center group"
+                className="bg-[#E6DFFE] border-3 border-black p-6 shadow-[4px_4px_0px_#FF9A00] hover:shadow-[6px_6px_0px_#FF9A00] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all text-center group"
               >
                 <span className="font-bebas text-2xl tracking-widest text-black group-hover:text-[#FF188C] transition-colors block">
                   {cat}
