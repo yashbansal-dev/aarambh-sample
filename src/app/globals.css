@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --font-bebas: var(--font-bebas-neue);
+  --font-caveat: var(--font-caveat);
+  --font-sans: var(--font-jakarta), var(--font-geist-sans), sans-serif;
+  
+  --color-cream: #F5F1E5;
+  --color-neon-green: #FF9A00;
+  --color-neon-purple: #0D21DD;
+  --color-neon-pink: #FF188C;
+  --color-neon-cyan: #00FFFF;
+  --color-neon-yellow: #FF9A00;
+}
+
+:root {
+  --background: #F5F1E5;
+  --foreground: #000000;
+}
+
+body {
+  background-color: #F5F1E5;
+  color: #000000;
+  font-family: var(--font-jakarta), var(--font-geist-sans), sans-serif;
+}
+
+/* Custom styles for animations & neo-brutalist elements */
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll {
+  display: flex;
+  width: max-content;
+  animation: scrollLeft 25s linear infinite;
+}
+
+/* Vinyl rotation animation */
+@keyframes spinSlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 20s linear infinite;
+}
+
+/* Custom scrollbar for neo-brutalist aesthetics */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F1E5;
+  border-left: 2px solid #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000000;
+  border: 2px solid #F5F1E5;
+}
+
+/* Custom Interactive Cursor and Glow settings */
+@media (hover: hover) and (pointer: fine) {
+  body, button, a, input, select, textarea, [role="button"], label, summary {
+    cursor: none !important;
+  }
+}
+
+.screen-glow {
+  box-shadow: inset 0 0 45px rgba(13, 33, 221, 0.22);
+}
