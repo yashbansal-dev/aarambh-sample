@@ -5,7 +5,6 @@
 import React from 'react';
 import { Navbar } from '../components/Navbar';
 import { Homepage } from '../components/Homepage';
-import { FooterSynthesizer } from '../components/FooterSynthesizer';
 import { CustomCursor } from '../components/CustomCursor';
 
 export default function Home() {
@@ -18,9 +17,6 @@ export default function Home() {
       <main className="flex-1 flex flex-col">
         <Homepage />
       </main>
-
-      {/* Synthesizer Footer */}
-      <FooterSynthesizer />
 
       {/* Custom Cursor follower */}
       <CustomCursor />
